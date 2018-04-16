@@ -1,0 +1,27 @@
+{
+  "name": "hellp",
+  "version": "0.1.1",
+  "description": "",
+  "cordova": {
+    "id": "cordova-plugin-hellp",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theavijitsarkar/hellp.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theavijitsarkar/hellp/issues"
+  },
+  "homepage": "https://github.com/theavijitsarkar/hellp#readme"
+}
