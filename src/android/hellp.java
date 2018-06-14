@@ -1,4 +1,4 @@
-package cordova-plugin-hellp;
+package cordova.plugin.hellp;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
@@ -6,6 +6,14 @@ import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.net.wifi.WifiManager;
 
 /**
  * This class echoes a string called from JavaScript.
@@ -19,6 +27,27 @@ public class hellp extends CordovaPlugin {
             this.coolMethod(message, callbackContext);
             return true;
         }
+
+        if(action.equals("startWifiTracker")){
+/*
+            BroadcastReceiver broadcastReceiver = new WifiBroadcastReceiver();
+
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.putExtra("mac",args.getString(0));
+            intentFilter.addAction(WifiManager.SUPPLICANT_STATE_CHANGED_ACTION);
+            context.registerReceiver(broadcastReceiver, intentFilter);
+
+*/
+
+
+            BroadcastReceiver broadcastReceiver = new WifiChange();
+
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction(WifiManager.SUPPLICANT_STATE_CHANGED_ACTION);
+            getApplicationContext().registerReceiver(broadcastReceiver, intentFilter);
+        }
+
+
         return false;
     }
 
@@ -30,3 +59,4 @@ public class hellp extends CordovaPlugin {
         }
     }
 }
+
